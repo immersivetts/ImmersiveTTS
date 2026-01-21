@@ -2,7 +2,7 @@
 
 <h3 align="center"> Anonymous authors </h3>
 
-<img src="figure/overview.jpg" align="center" width="1000" height="400">
+<img src="figure/overview.jpg" align="center" width="1000" height="450">
 
 ### Clone our repository
 ```
