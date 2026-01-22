@@ -1,0 +1,52 @@
+output_dir: ImmersiveTTS-v1
+load_from_ckpt_path: 
+checkpoints_total_limit: 2
+mixed_precision: 
+max_train_steps: 400000
+checkpointing_steps: 50000
+eval_steps: 20000
+train_batch_size: 8
+gradient_accumulation_steps: 1
+dataloader_num_workers: 8
+
+lr_scheduler: constant
+lr_warmup_steps: 0
+learning_rate: 1.e-4
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_weight_decay: 1.e-2
+adam_epsilon: 1.e-08
+
+max_grad_norm: 1.0
+uncond_env_prob: 0.1
+uncond_cont_prob: 0.1
+add_noise_prob: 0.85
+spk_embedding_prepared: true
+
+libri_tts_path: "/your/path/to/libri_tts_path.json"
+test_libri_tts_path: "/your/path/to/test_libri_tts_path.json"
+as_nonspeech_path: "/your/path/to/as_nonspeech_path.json"
+bbc_sound_effects_path: "/your/path/to/bbc_sound_effects_path.json"
+sound_bible_path: "/your/path/to/sound_bible_path.json"
+free_sound_path: "/your/path/to/free_sound_path.json"
+
+# Model and optimizer parameters
+model:
+  num_layers: 12
+  num_single_layers: 18 
+  in_channels: 64 
+  attention_head_dim: 128
+  joint_attention_dim: 1024
+  num_attention_heads: 6
+  audio_seq_len: 645
+  max_duration: 30
+  uncondition: false
+  text_encoder_name: "google/flan-t5-large"
+  clap_type: "audio"
+  vae_model_name: "audioldm2"
+  repa: false
+  repa_encoder_depth: [6,10]
+  repa_z_dims: [1024,768]
+  repa_projector_dim: 2048
+  encoder_type: ["wavlm","atst-frame"]
+  meanflow: false
