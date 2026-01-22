@@ -1,7 +1,6 @@
 output_dir: ImmersiveTTS-v1
 load_from_ckpt_path: 
 checkpoints_total_limit: 2
-mixed_precision: 
 max_train_steps: 400000
 checkpointing_steps: 50000
 eval_steps: 20000
